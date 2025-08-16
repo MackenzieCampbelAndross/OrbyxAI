@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to Orbyx AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/welcome.css') }}">
+</head>
+<body>
+
+  <!-- Logo -->
+  <div class="logo-image"></div>
+
+  <!-- Description -->
+  <div class="description-bar">
+    <span class="desc-left">Precision.</span>
+    <span class="desc-center">Space.</span>
+    <span class="desc-right">Orbyx AI.</span>
+  </div>
+
+  <!-- ENTER ORBYX Button -->
+  <a href="{{ url_for('index') }}" class="enter-orbyx" id="launchBtn">ENTER ORBYX</a>
+
+  <!-- Spaceship (hidden by default) -->
+  <img src="{{ url_for('static', filename='images/spaceship.png') }}" alt="spaceship" class="spaceship" id="spaceship">
+
+  <script>
+    const btn = document.getElementById("launchBtn");
+    const spaceship = document.getElementById("spaceship");
+
+    btn.addEventListener("click", function(e) {
+      e.preventDefault();
+
+      // Fly spaceship
+      spaceship.classList.add("fly-up");
+
+      // Slide page upward
+      document.body.style.transition = "transform 2s ease-in-out";
+      document.body.style.transform = "translateY(-100vh)";
+
+      // Redirect after transition
+      setTimeout(() => {
+        window.location.href = "{{ url_for('index') }}";
+      }, 2300);
+    });
+  </script>
+
+</body>
+</html>

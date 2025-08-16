@@ -1,0 +1,102 @@
+@font-face {
+  font-family: 'Space Age';
+  src: url("../fonts/space_age.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'OCR-A';
+  src: url("../fonts/OCRA.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Aurora';
+  src: url("../fonts/Aurora.otf") format("opentype");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: url("../images/landingpage.png") no-repeat center center/cover;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+/* Description */
+.description-bar {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: 'OCR-A', monospace;
+  font-size: 0.50rem;
+  color: white;
+}
+.description-container {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 60px;
+}
+.desc-left,
+.desc-center,
+.desc-right {
+  flex: 1;
+}
+.desc-left {
+  text-align: left;
+}
+.desc-center {
+  text-align: center;
+}
+.desc-right {
+  text-align: right;
+}
+
+/* Button */
+.enter-orbyx {
+  display: inline-block;
+  padding: 14px 50px;
+  font-size: 10px;
+  font-family: 'Aurora', sans-serif;
+  color: rgb(231, 231, 231);
+  background-color: transparent;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 55px;
+}
+.enter-orbyx:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+/* Spaceship */
+.spaceship {
+  position: absolute;
+  bottom: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  opacity: 0;
+  transition: bottom 2.5s ease-in-out, opacity 0.4s ease-in;
+  z-index: 9999;
+}
+.spaceship.fly-up {
+  bottom: 110vh;
+  opacity: 1;
+}

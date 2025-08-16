@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orbyx Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <div class="chat-window">
+    {% if chat_history %}
+      {% for speaker, message in chat_history %}
+        <div class="message"><strong>{{ speaker }}:</strong> {{ message }}</div>
+      {% endfor %}
+    {% else %}
+      <div class="message">Orbyx AI is online. Ask me anything about ISRO</div>
+    {% endif %}
+  </div>
+
+  <form method="POST">
+    <input type="text" name="user_input" placeholder="Type your question..." required autofocus />
+    <button type="submit">Send</button>
+  </form>
+
+  <a href="/reset" class="reset-link">Reset Chat</a>
+</body>
+</html>
